@@ -77,7 +77,6 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     override fun onAdShowedFullScreenContent() {
-                        showContent()
                         interAd = null
                         loadInterAd()
                     }
