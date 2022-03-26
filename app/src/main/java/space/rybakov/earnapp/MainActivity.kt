@@ -8,7 +8,6 @@ import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import space.rybakov.earnapp.databinding.ActivityMainBinding
 
-
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var interAd: InterstitialAd? = null
@@ -18,6 +17,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initAdMob()
+        (application as AppMainState).showAdIfAvailable(this){
+            Toast.makeText(this, "Start app", Toast.LENGTH_LONG).show()
+        }
         binding.button.setOnClickListener{
             showInterAd()
         }
